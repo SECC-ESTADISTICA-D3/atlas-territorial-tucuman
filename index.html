@@ -845,6 +845,7 @@ footer{position:absolute;bottom:0;left:0;right:0;z-index:450;background:#061321e
 </style>
 
 <style id="mobile-fix">
+#sheetBar{display:none}#bk{display:none;position:fixed}
 @media(max-width:850px){
  html,body{overscroll-behavior:none}
  header{height:50px!important;padding:0 10px!important}
@@ -854,8 +855,7 @@ footer{position:absolute;bottom:0;left:0;right:0;z-index:450;background:#061321e
  header small{display:none!important}
  header .hb{flex-wrap:nowrap!important;gap:5px!important}
  header .hb button{padding:8px 11px!important;font-size:15px!important;letter-spacing:0!important;min-width:38px}
- header .hb button:last-child{font-size:0!important}header .hb button:last-child svg,header .hb button:last-child img{width:18px;height:18px}
- header h1{overflow:hidden;text-overflow:ellipsis}
+  header h1{overflow:hidden;text-overflow:ellipsis}
  main{height:calc(100% - 50px)!important}
 }
 @media(max-width:520px){#hBack,#hFwd{display:none!important}header h1{font-size:12px!important}}
@@ -15071,7 +15071,7 @@ startAtlasCustomEditor();
  var ib=document.getElementById('ib'),info=document.querySelector('.info');
  function chk(){if(!info||!ib)return;info.classList.toggle('empty',/^\s*Hacé clic en el mapa/.test(ib.textContent))}
  if(ib){new MutationObserver(chk).observe(ib,{childList:true,subtree:true,characterData:true});chk()}
- if(innerWidth<=850){var ic={hBack:'◀',hFwd:'▶',hClr:'✕'};for(var k in ic){var e=document.getElementById(k);if(e)e.textContent=ic[k]}}
+ if(innerWidth<=850){var ic={hBack:'◀',hFwd:'▶',hClr:'✕'};for(var k in ic){var e=document.getElementById(k);if(e)e.textContent=ic[k]}var hb=document.querySelectorAll('header .hb button'),pb=hb[hb.length-1];if(pb&&!ic[pb.id])pb.textContent='🖨'}
  var f=document.querySelector('footer span:last-child');if(f&&!/v3/.test(f.textContent))f.textContent+=' · v3';
 }catch(e){}})();
 </script>
